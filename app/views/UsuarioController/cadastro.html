@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+#{extends 'main.html' /}
+
+#{form @UsuarioController.setLanguages(),
+enctype:'multipart/form-data' , id:'idiomasform'}
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="@{'/public/bootstrap/assets/ico/favicon.png'}">
+
+    <title>AppTranslator - Welcome [USER] aka DarthVader</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="@{'/public/bootstrap/css/bootstrap.css'}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+      <script src="../assets/js/respond.min.js"></script>
+      <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="@{'/public/bootstrap/css/show.css'}" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+          <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#" style="font-family: 'Lobster', cursive; font-size: 32px;" >App Translator</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Ask Translations</a></li>
+                <li><a href="../TraducaoController/arquivosPedidos">Translations in Progress</a></li>
+               	<li><a href="../TraducaoController/frasesTraduzidas">You Translated</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="../UsuarioController/notificacao" class="btn btn-warning glyphicon " id=newMessages style="padding: 0px 2px 1px 2px; border: 0">
+	                  <p class="icon-white glyphicon-envelope" style="padding: 10px">
+	                  
+	                  #{if usuario.isThereNotification()}
+	                  <span class="badge" style="top:-8px; left:-18px">!</span></p>
+					  #{/if}
+					  #{else}
+					  	<span> </span></p>	
+					  #{/else}
+					  
+	              </a></li>	
+              </ul>
+                <ul class="nav navbar-btn navbar-right">
+                    <li><a href="" onclick="desconectar()" class="btn btn-danger" id=loginbtn >Logout</a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="container">
+    <!-- Make Translation Container-->
+        <div class="container user">
+            <div class="col-lg-9" id="toTranslate">
+
+                <h3>Languages I understand:</h3><br>
+                <select class="select" name="languagesFrom" multiple>
+                    <option value="english">English</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="espanhol">Español</option>                    
+                    <option value="portugues">Português</option>                    
+                    <option value="italian">Italiano</option>
+                </select><br><br>
+
+                <h3>I will translate to the following language(s):</h3><br>
+                <select class="select" name="languagesTo" multiple>
+                    <option value="english">English</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="espanhol">Español</option>                    
+                    <option value="portugues">Português</option>                    
+                    <option value="italian">Italiano</option>
+                </select><br><br>
+
+                <input type="submit" class="btn btn-default">
+            </div>
+
+            <!-- User Container -->
+            #{include 'userContainer.html' /}
+        </div>
+
+
+        <!-- /END THE UserContent -->
+
+
+        <!-- FOOTER -->
+        <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="@{'/public/bootstrap/assets/js/jquery.js'}"></script>
+    <script src="@{'/public/bootstrap/js/bootstrap.min.js'}"></script>
+    <script src="@{'/public/bootstrap/assets/js/holder.js'}"></script>
+  </body>
+</html>
+
+#{/form}

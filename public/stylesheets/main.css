@@ -1,0 +1,76 @@
+/* Tela de Login */
+
+.facebookBtn {
+	-moz-box-shadow: inset 0px 1px 0px 0px #7B88B7;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #7B88B7;
+	box-shadow: inset 0px 1px 0px 0px #7B88B7;
+	color: white;
+	height: 25px;
+	line-height: 25px;
+	text-shadow: black 0 -1px 0;
+	text-align: center;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5E6C9B), color-stop(1, #485588) );
+	background: -moz-linear-gradient(center top, #5E6C9B 5%, #485588 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5E6C9B', endColorstr='#485588');
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border: 1px solid #435897;
+	display: inline-block;
+	vertical-align: middle;
+	cursor:default;
+}
+
+.facebookBtn:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #485588), color-stop(1, #5E6C9B) );
+	 background: -moz-linear-gradient(center top, #485588 5%, #5E6C9B 100%);
+	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#485588', endColorstr='#5E6C9B');
+}
+
+.facebookBtn:active, .twitterBtn:active{
+	top:1px;
+}
+
+
+.flashMessage, .flashMessageErro{
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	margin-bottom: 10px;
+	padding: 10px;
+	text-align: center;
+	
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	box-shadow: 0px 3px 6px -2px #CCC;
+	-moz-box-shadow: 0px 3px 6px -2px #CCC;
+	-webkit-box-shadow: 0px 3px 6px -2px #CCC;
+	margin-left: -80px;
+	position: absolute;
+	top: 60px;
+}
+
+.flashMessage{
+	background: #E3F5DF;
+	border: 1px solid #6ED057;
+	color: #2D711E;
+}
+
+.flashMessageErro
+{
+	background: #F4E1E1;
+	border: 1px solid #CE5656;
+	color: #701E1E;
+}
+
+.labelNormal{
+	color: rgba(255, 255, 255, 0.6);
+	font-weight: normal;
+}
+/* Fim de Login */

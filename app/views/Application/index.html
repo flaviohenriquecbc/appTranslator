@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+#{extends 'main.html' /}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="@{'/public/bootstrap/assets/ico/favicon.png'}">
+
+    <title>AppTranslator - Your FREE Solution to Non-English Speakers</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="@{'/public/bootstrap/css/bootstrap.css'}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="@{'/public/bootstrap/assets/js/html5shiv.js'}"></script>
+      <script src="@{'/public/bootstrap/assets/js/respond.min.js'}"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="@{'/public/bootstrap/css/index.css'}" rel="stylesheet">
+    <link href="@{'/public/bootstrap/css/popup.css'}" rel="stylesheet"/>
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#" style="font-family: 'Lobster', cursive; font-size: 32px;" >App Translator</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>                
+              </ul>
+              <ul class="nav navbar-btn navbar-right">
+                <li><a onclick="loginWithFacebook();" class="btn btn-success" id=loginbtn >Login Now with Facebook</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="public/bootstrap/img/globe.png" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 style="color:#000000">Translate your App NOW! FOR FREE!</h1>
+              <p style="color:#000000">Don't you want to make your app more global? Why not translate it? DO IT NOW!FOR FREE!</p>
+              <p><a class="btn btn-large btn-success" href="#">Just login now!</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item" >
+          <img src="public/bootstrap/img/happyplp.png" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 style="color:#000000">Crowdtranslations! Help the world and be helped by it! </h1>
+              <p style="color:#000000">Get native speakers to translate your app, and for FREE!!!</p>
+              <p><a class="btn btn-large btn-success" href="#">Try it! You don't even need to create an account!</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item" style="text-align: left;">
+          <div class="container">
+              <img src="public/bootstrap/img/nonEnglishWorld.png" alt="Third slide">
+              <div class="carousel-caption">
+                  <h1 style="color:#000000">How many user are you ignoring?</h1>
+                  <p style="color:#000000">More than 60% of ALL APP DOWNLOADS are made for Non-English speakers</p>
+                  <p><a class="btn btn-large btn-success" href="#">Ok, I give up!</a></p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="public/bootstrap/img/1step.png" alt="First Step">
+          <h2>Submit a phrase</h2>
+          <p>Send the desired text to be translated.</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="public/bootstrap/img/2step.png" alt="Second Step">
+          <h2>Translate some phrase!</h2>
+          <p>Use your own knowledge to earn points!</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle"  src="public/bootstrap/img/3step.png" alt="Get rich NOW">
+          <h2>Get translated</h2>
+          <p>Translate your app and get rich!</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+    <!--<div id="overlay" >-->
+
+        <!--<div id="popup" style=z-index:20>-->
+            <!--<label> Login with Facebook:</label>-->
+            <!--<div id='login_container'>-->
+
+                <!--&lt;!&ndash; Header - Close button&ndash;&gt;-->
+                <!--<div id="header" style="width: 100%; vertical-align:middle; line-height:40px;margin-left:-2px;margin-top: -1px;">-->
+                    <!--<label id="tituloPopup" class="textoHeader">&{'login.header'}</label>-->
+                    <!--<button type="button" class="textoClose" onclick="popup('popUpDiv')">X</button>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; Buttons used for Login &ndash;&gt;-->
+                <!--<label class="textoSimples" style="margin-top:10px;margin-left:20px;float:left">&{'login.redesscocias'}</label>-->
+
+                <!--&lt;!&ndash; Facebook button&ndash;&gt;-->
+                <!--<div style="margin-left:50px;margin-top:40px;">-->
+                    <!--<a class="facebookBtn" onclick="loginWithFacebook(false);" style="width:80%;padding: 5px 0px;">-->
+                        <!--<img src="@{'public/images/faceIcon.png'}" class="iconImage">-->
+                        <!--<span class="i18n" title="btn.conectarFacebook">&{'btn.conectarFacebook'}</span>-->
+                    <!--</a>-->
+                <!--</div>-->
+
+                <!--<div style="margin: 5px 0 5px 50px;">-->
+                    <!--<span class="textoPequeno">&{'login.aceitoTermoDeUso'}</span>-->
+                    <!--<a class="textoPequeno" href="http://www.protestai.com/termosDeUso" style="left:0px;">&{'login.termoUso'}</a>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; Criar conta &ndash;&gt;-->
+                <!--<div id='login_footer'>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <!--<label> Login with Google:</label>-->
+            <!--<br><br>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Protest Monkey, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="@{'/public/bootstrap/assets/js/jquery.js'}"></script>
+    <script src="@{'/public/bootstrap/js/bootstrap.min.js'}"></script>
+    <script src="@{'/public/bootstrap/assets/js/holder.js'}"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<div class="col-lg-3 well" id="userSection">
+	#{if usuario.getId() == 1}
+    	<img class="img-circle" src="../public/bootstrap/img/flavio_lindo.png" alt="FBPhoto">
+    #{/if}
+    #{else}
+    	<img class="img-circle" src="../public/bootstrap/img/profile_mockup.png" alt="FBPhoto">
+    #{/else}
+    <br><br>
+    <p>${usuario.getNome()}</p>
+    <p></p>
+    <p>You have <span id="coins">${usuario.getPontos()}</span> &nbsp;<img class="img-circle" src="../public/bootstrap/img/coin20.png" alt="FBPhoto"></p>
+</div>

@@ -1,0 +1,6 @@
+#{if controllers.UsuarioController.getConnectedUser() != null}
+<script>/*usuarioControler()*/</script>
+#{/if}
+#{else}
+<script>killSessao()</script>	
+#{/else}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>       
+        <meta charset="${_response_encoding}">
+        <meta name="keywords" content="AppTranslator">
+        <title>AppTranslator</title>		
+		<meta name="title" content="AppTranslator" />
+		<meta name="description" content="Descricao" />
+		<meta name="og:description" content="descricao" />
+		<link rel="image_src" href="" />
+		<meta property="og:image" content="" />
+		
+		<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">        
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+
+        <script src="@{'/public/javascripts/jquery-1.7.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+ 		<script src="@{'/public/javascripts/scripts.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+ 		<script src="@{'/public/javascripts/redesSociais.js'}" type="text/javascript"></script> 		
+    </head>
+    <body>
+    
+    <script>
+</script>
+   
+    	#{include 'barraSuperior.html' /}
+		#{include 'login.html' /}
+		
+    	<div class="content">    	
+    		<div style="position:fixed; text-align: center; z-index:500; left:0; right:0; top:5px" >	
+    		<div id="flashDiv" class="flashMessage" 
+    			#{if flash.get("message") != null}
+    				style="display:inline-block">
+    				<script>
+    					setTimeout(function(){
+    						$("#flashDiv").fadeOut('slow');
+    					}, 4000);	
+    				</script>
+    			#{/if}
+				#{else}
+					style="display:none" >
+				#{/else}
+    			<label id="flashMessage">${flash.get("message")}</label>
+    		</div>
+    		<div id="flashDivErro" class="flashMessageErro" 
+    			#{if flash.get("messageErro") != null}
+    				style="display:inline-block">
+    				<script>
+    					setTimeout(function(){
+    						$("#flashDivErro").fadeOut('slow');
+    					}, 4000);	
+    				</script>
+    			#{/if}
+				#{else}
+					style="display:none" >
+				#{/else}
+    			<label id="flashMessageErro">${flash.get("messageErro")}</label>
+    		</div>    		
+    		</div>    		
+    		
+    		<div class="contentRow">
+	    		<div class="right-panel">
+	        		<div class="left-panel">
+	        			#{doLayout /}
+	        		</div>
+	        	 </div>
+        	 </div>
+        </div>
+        
+        #{include 'footer.html' /}			    	    	
+		
+    </body>
+</html>
+	
+

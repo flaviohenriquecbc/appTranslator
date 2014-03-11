@@ -1,0 +1,1 @@
+C:\play-1.2.5\play.bat run "D:\appTranslator"

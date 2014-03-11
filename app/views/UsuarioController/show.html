@@ -1,0 +1,173 @@
+#{extends 'main.html' /}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="@{'/public/bootstrap/assets/ico/favicon.png'}">
+
+    <title>AppTranslator - Welcome [USER] aka DarthVader</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="@{'/public/bootstrap/css/bootstrap.css'}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="@{'/public/bootstrap/assets/js/html5shiv.js'}"></script>
+      <script src="@{'/public/bootstrap/assets/js/respond.min.js'}"></script>
+      <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="@{'/public/bootstrap/css/show.css'}" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+          <div class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#" style="font-family: 'Lobster', cursive; font-size: 32px;" >App Translator</a>
+                  </div>
+                  <div class="navbar-collapse collapse">
+                      <ul class="nav navbar-nav">
+                          <li class="active"><a href="../UsuarioController/show">Home</a></li>
+                          <li><a href="../TraducaoController/traduzir">Ask Translations</a></li>
+                          <li><a href="../TraducaoController/arquivosPedidos">Translations in Progress</a></li>
+                          <li><a href="../TraducaoController/frasesTraduzidas">You Translated</a></li>
+                          <li><a href="#about">About</a></li>
+                          <li><a href="#contact">Contact</a></li>
+                          <li><a href="../UsuarioController/notificacao" class="btn btn-warning glyphicon " id=newMessages style="padding: 0px 2px 1px 2px; border: 0">
+	                  <p class="icon-white glyphicon-envelope" style="padding: 10px">
+	                  
+	                  #{if usuario.isThereNotification()}
+	                  <span class="badge" style="top:-8px; left:-18px">!</span></p>
+					  #{/if}
+					  #{else}
+					  	<span> </span></p>	
+					  #{/else}
+					  
+	              </a></li>	
+                      </ul>
+                      <ul class="nav navbar-btn navbar-right">
+                          <li><a href="../index" class="btn btn-danger" id=loginbtn >Logout</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+
+    <div class="container">
+    <!-- Make Translation Container-->
+        <div class="container user">
+            <div class="col-lg-9">
+            	#{if frase != null}
+            		<div id="toTranslate">
+		                <h3>How would you translate this phrase to: <span id="idiomaTo">${frase.getIdiomaTo()}</span>?</h3>
+		                <label style="font-size:36px" id="fraseOriginal" class="text-warning">${frase.getOriginal()}</label><br>
+		                <input type="textbox" id="traducao" class="long_input" placeholder="Type here the translation in ${frase.getIdiomaTo()}" style="border-radius:5px; height:35px;"/>
+		                <input class="btn btn-success" type="submit" id="translateBtn" onclick="translateFrase('${frase.getKeyFile().getId()}', '${frase.getId()}');"/>
+					</div>
+					<div class="panel panel-danger"  id="notTranslate" style="display:none">
+	                    <div class="panel-heading">                    
+	                        <h3 class="panel-title">Phrases to translate</h3>
+	                    </div>
+	                    <div class="panel-body">
+							<label id="notTranslate">Yey, everything is already translated here! </label>
+						</div>
+					</div>	               
+                #{/if}
+				#{else}
+					<div class="panel panel-danger">
+	                    <div class="panel-heading">                    
+	                        <h3 class="panel-title">Phrases to translate</h3>
+	                    </div>
+	                    <div class="panel-body"  id="listaTraduzida">
+							<label id="notTranslate">Yey, everything is already translated here! </label>
+						</div>
+					</div>
+				#{/else}
+				<br>                
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">List of phrases you translated</h3>
+                    </div>
+                    <div class="panel-body"  id="listaTraduzida">
+                        #{if frasesTraduzidas.size() == 0}
+                        <label id="frasesTraduzidasVazia">No phrase translated yet.</label>
+                        #{/if}
+                        #{else}
+                        #{list items:frasesTraduzidas, as:'frase'}
+                        <img src="@{'/public/images/flavioMini.jpg'}" style="border-radius: 99px; margin-left:10px;">
+                        <label style="width:55px; text-align:right">asked: </label>
+                        <label class="labelNormal">${frase.getOriginal()}</label><br>
+                        <label>Your translation: </label>
+                        <label class="text-muted labelNormal">${frase.getTraduzida()}</label><br><br>
+                        #{/list}
+                        #{/else}
+                    </div>
+                </div>
+                <br>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">List of files you asked to translate</h3>
+                    </div>
+                    <div class="panel-body"  id="listaPedida">
+                        #{if arquivosPedidos.size() == 0}
+                        <label id="frasesPedidasVazia">You didn't ask any file to be translated yet.</label>
+                        #{/if}
+                        #{else}
+                        #{list items:arquivosPedidos, as:'arquivo'}
+                        <div>
+                        <div class="progress progress-striped" style="width:120px; float:left">
+                        	<label style="position:absolute; margin-left: 10px;">${arquivo.getDonePercentage()}%</label>
+                        	<div class="progress-bar progress-bar-danger" style="width:${arquivo.getDonePercentage()}%"></div>
+                        </div>                       
+                        <a href="../TraducaoController/showFile?idFile=${arquivo.getId()}" style="clear:left; margin-left: 20px;"><label>#${arquivo.getId()} - ${arquivo.getFirstPhrase()} ...</label></a>
+                        </div><br>
+                        #{/list}
+                        #{/else}
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- User Container -->
+            #{include 'userContainer.html' /}
+        </div>
+
+
+        <!-- /END THE UserContent -->
+
+
+        <!-- FOOTER -->
+        <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="@{'/public/bootstrap/assets/js/jquery.js'}"></script>
+    <script src="@{'/public/bootstrap/js/bootstrap.min.js'}"></script>
+    <script src="@{'/public/bootstrap/assets/js/holder.js'}"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!--     Inicio do Login     -->
+		<div id="blanket" style="display:none;"></div>
+		<div id="popUpDiv" class="popUpDiv" style="display:none; position:fixed; width:400px;height:210px;">
+			<div id='login_container'>
+			
+				<!-- Header - Close button-->
+				<div id="header" style="width: 100%; vertical-align:middle; line-height:40px;margin-left:-2px;margin-top: -1px;">
+					<label id="tituloPopup" class="textoHeader">&{'login.header'}</label>
+					<button type="button" class="textoClose" onclick="popup('popUpDiv')">X</button>
+				</div>
+				
+				<!-- Buttons used for Login -->
+				<label class="textoSimples" style="margin-top:10px;margin-left:20px;float:left">&{'login.redesscocias'}</label>
+				
+				<!-- Facebook button-->
+				<div style="margin-left:50px;margin-top:40px;">
+					<a class="facebookBtn" onclick="loginWithFacebook(false);" style="width:80%;padding: 5px 0px;">
+						<img src="@{'public/images/faceIcon.png'}" class="iconImage"> 
+						<span class="i18n" title="btn.conectarFacebook">&{'btn.conectarFacebook'}</span>
+					</a>
+				</div>
+			
+				<div style="margin: 5px 0 5px 50px;">
+					<span class="textoPequeno">&{'login.aceitoTermoDeUso'}</span>
+					<a class="textoPequeno" href="http://www.protestai.com/termosDeUso" style="left:0px;">&{'login.termoUso'}</a>
+				</div>				
+				
+				<!-- Criar conta -->
+				<div id='login_footer'>					
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		<!--    Fim do Login    -->	
+		
